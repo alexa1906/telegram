@@ -1,0 +1,17 @@
+.login-page {
+  background-color: #dfd8d8;
+  padding: 30px;
+  width: 80%;
+}
+
+.image-container {
+  padding: 0 30px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 40%;
+  height: auto;
+}

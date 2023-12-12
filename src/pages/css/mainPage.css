@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+}
+.main-page-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .chat-list-container {
+    width: 25%;
+    background-color: #ffffff;
+  }
+  
+  .chat-container {
+    width: 75%;
+    background-color: rgb(183, 181, 181);
+  }

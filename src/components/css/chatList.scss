@@ -1,0 +1,133 @@
+$grey: #8a8787;
+$blue: rgb(57, 57, 156);
+.chat-list {
+  position: relative;
+  padding: 20px;
+}
+
+.chat-list h2 {
+  margin-bottom: 10px;
+}
+
+.chat-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.chat-list li {
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.menuIcon {
+  width: 20px;
+  height: auto;
+  margin-right: 8%;
+  cursor: pointer;
+}
+
+.chat-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-list-header .search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 20px;
+  border: 2px solid $grey;
+  height: 30px;
+  width: 250px;
+}
+
+.chat-list-header .search-input img {
+  margin: 0 8px;
+  width: 20px;
+  height: auto;
+  margin-right: 8%;
+}
+
+.chat-list-header .search-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.chat-list-bottom{
+  position: absolute;
+  width: 90%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 70px;
+  top: 700px;
+}
+
+.btn1{
+  align-items: center;
+  background-color: $blue;
+  border: 0;
+  border-radius: 100px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 500;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 40px;
+}
+
+.btn2{
+  align-items: center;
+  background-color: $blue;
+  border: 0;
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 55px;
+  height: 55px;
+}
+
+.btn2 img{
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 20px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.chat-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.last-message {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: $grey;
+}
+.chat-item.selected {
+  background-color: $blue; 
+  color: white;   
+}
