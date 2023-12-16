@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
-import '../components/css/signUpForm.css'; // Import CSS for this component
+import axios from 'axios';
+import '../components/css/signUpForm.css';
+import { AxiosError } from 'axios';
 
 const SignUpForm: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic using username and password
-    console.log('Sign up with:', username, password, email);
-    // You can call an authentication function from utils/auth.ts here
+    
+    try {
+      const response = await axios.post('http://localhost:3000/user/create', {
+        email: email,
+        username: username,
+        password: password
+      });
+      
+      console.log('User registered:', response.data); // Log response from the server
+
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const axiosError = error as AxiosError;
+        console.error('Registration failed:', axiosError.response?.data);
+      } else {
+        console.error('Unexpected error during registration:', error);
+      }
+    }
   };
 
   return (
@@ -27,12 +44,13 @@ const SignUpForm: React.FC = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <input
+       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+
       <button type="submit">Sign Up</button>
     </form>
   );

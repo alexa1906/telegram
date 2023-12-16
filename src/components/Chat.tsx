@@ -1,26 +1,20 @@
-// Chat.tsx
-
 import React, { useState } from 'react';
-import '../components/css/chat.css'; // Import the chat.css file for styling
+import '../components/css/chat.css';
 
 interface Message {
   id: number;
   text: string;
   sender: string;
-  // Add other properties as needed for each message
 }
 
 const Chat: React.FC = () => {
-  // Sample message data (replace with your actual data)
   const [messages, setMessages] = useState<Message[]>([
     { id: 1, text: 'Hello!', sender: 'User' },
     { id: 2, text: 'Hi there!', sender: 'Friend' },
-    // Add more message objects as needed
   ]);
 
   const sendMessage = () => {
-    // Add functionality to send a message (e.g., through an input field)
-    // Update the messages state with the new message
+    // Add functionality to send a message 
   };
 
   return (

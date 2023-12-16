@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../components/css/chatList.scss"; // Import the chatList.css file for styling
+import "../components/css/chatList.scss"; 
 import menuIcon from "/icons8-menu-50.png";
 import searchIcon from "/icons8-search-24.png";
 import pen from "/icons8-pen-67.png";
@@ -13,7 +13,7 @@ interface Chat {
 }
 
 const ChatList: React.FC = () => {
-  // Sample chat data (replace with your actual data)
+  // Sample chat data
   const [selectedChat, setSelectedChat] = useState<number | null>(null);
 
   const chats: Chat[] = [
@@ -29,7 +29,6 @@ const ChatList: React.FC = () => {
       lastMessage: "Hey!",
       profilePic: "/pic2.png",
     },
-    // Add more chat objects as needed
   ];
   
   const handleChatClick = (chatId: number) => {
@@ -37,9 +36,8 @@ const ChatList: React.FC = () => {
   };
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Implement your search functionality here
+    // Implement search functionality
     const searchText = event.target.value;
-    // Perform filtering or any other logic based on searchText
   };
   const handleMenuClick = () => {
     // Handle menu icon click
