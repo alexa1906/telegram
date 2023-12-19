@@ -21,6 +21,8 @@
 .sent {
   align-self: flex-end;
   background-color: #dcf8c6;
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 .received {

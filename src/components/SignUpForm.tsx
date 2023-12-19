@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../components/css/signUpForm.css';
 import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const SignUpForm: React.FC = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -19,8 +22,9 @@ const SignUpForm: React.FC = () => {
       });
       
       console.log('User registered:', response.data); // Log response from the server
+      }
 
-    } catch (error) {
+    catch (error) {
       if (axios.isAxiosError(error)) {
         const axiosError = error as AxiosError;
         console.error('Registration failed:', axiosError.response?.data);
@@ -31,6 +35,7 @@ const SignUpForm: React.FC = () => {
   };
 
   return (
+    <>
     <form className="login-form" onSubmit={handleLogin}>
       <input
         type="text"
@@ -53,6 +58,8 @@ const SignUpForm: React.FC = () => {
 
       <button type="submit">Sign Up</button>
     </form>
+   
+    </>
   );
 }
 

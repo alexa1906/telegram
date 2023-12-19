@@ -2,6 +2,7 @@ import React from 'react';
 import SignUpForm from '../components/SignUpForm';
 import '../pages/css/singUpPage.css'; 
 import telgramImg from '/telegram_logo.png';
+import { Link } from 'react-router-dom';
 
 const singUpPage: React.FC = () => {
     return (
@@ -14,8 +15,18 @@ const singUpPage: React.FC = () => {
               <h1>Sign Up</h1>
               <SignUpForm />
             </main>
-            {/* Add Footer or other components as needed */}
           </div>
+          <p className="text-sm text-gray-600">
+        Already have an account?
+        <Link to="/loginPage">
+          <button
+            className="ml-1 text-[#3390ec] capitalize hover:underline"
+            type="submit"
+          >
+            Log In
+          </button>
+        </Link>
+      </p>
         </div>
       );
 }

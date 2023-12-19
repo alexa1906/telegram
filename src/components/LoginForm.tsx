@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import '../components/css/loginForm.css'; 
+import { useNavigate } from 'react-router-dom';
 
 interface ErrorResponse {
   message: string[];
@@ -9,6 +10,7 @@ interface ErrorResponse {
 }
 
 const LoginForm: React.FC = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -16,16 +18,32 @@ const LoginForm: React.FC = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post('http://localhost:3000/user/login', {
         email: email,
         username: username,
         password: password,
       });
-
-      console.log('Logged in:', response.data);
-      // Handle successful login
+    
+      console.log('Login Response:', response.data); // Check the entire response object
+    
+      const token = response.data; // Assuming the token is directly returned as a string
+    
+      if (token) {
+        localStorage.setItem('jwtToken', token); // Storing the token in local storage
+        console.log('Token:', token); // Check the extracted token value
+    
+        // Include the token in headers for subsequent requests
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    
+        console.log('Logged in:', response.data);
+        // Redirect to chat page after successful login
+        navigate('/mainpage');
+      } else {
+        console.error('Token is undefined or missing in the response');
+        // Handle the case where the token is not present in the response
+      }
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         const axiosError = error as AxiosError<ErrorResponse>; // Specify the error response type
@@ -41,6 +59,8 @@ const LoginForm: React.FC = () => {
       }
     }
   };
+  
+  
   return (
     <div className="font-primary max-w-[720px] mx-auto flex flex-col items-center">
       <form className="login-form" onSubmit={handleLogin}>
@@ -64,9 +84,6 @@ const LoginForm: React.FC = () => {
         />
         <button type="submit">Login</button>
       </form>
-      <p className="text-sm text-gray-600">
-        Don't have an account? Sign up <a href="src\components\SignUpForm.tsx">here</a>.
-      </p>
     </div>
   );
 };

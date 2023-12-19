@@ -3,6 +3,7 @@ $blue: rgb(57, 57, 156);
 .chat-list {
   position: relative;
   padding: 20px;
+  height: 100%;
 }
 
 .chat-list h2 {
@@ -64,7 +65,7 @@ $blue: rgb(57, 57, 156);
   justify-content: end;
   align-items: center;
   gap: 70px;
-  top: 700px;
+  top: 85%;
 }
 
 .btn1{

@@ -15,7 +15,6 @@ const LoginPage: React.FC = () => {
               <h1>Login</h1>
               <LoginForm />
             </main>
-            {/* Add Footer or other components as needed */}
           </div>
         </div>
       );
